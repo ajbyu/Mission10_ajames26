@@ -40,6 +40,10 @@ namespace Mission10_ajames26
 
             //Razor
             services.AddRazorPages();
+
+            //Session
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +61,8 @@ namespace Mission10_ajames26
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseSession();
 
             app.UseRouting();
 

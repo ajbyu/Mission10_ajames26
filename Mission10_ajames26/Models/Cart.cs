@@ -5,8 +5,10 @@ namespace Mission10_ajames26.Models
 {
     public class Cart
     {
+        //Cart
         public List<CartItem> CartItems { get; set; } = new List<CartItem>();
 
+        //Add
         public void AddCartItem(Book book, int quantity)
         {
             if (!CartItems.Any(i => i.Book.BookId == book.BookId))
@@ -17,6 +19,14 @@ namespace Mission10_ajames26.Models
             {
                 CartItems.Single(i => i.Book.BookId == book.BookId).Quantity += quantity;
             }
+        }
+
+        //Get cart total
+        public double CalculateTotal()
+        {
+            double total = CartItems.Sum(i => i.Quantity * i.Book.Price);
+
+            return total;
         }
     }
 
