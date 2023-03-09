@@ -14,4 +14,14 @@
     <div>Classification: @Model.Classification</div>
     <div>Category: @Model.Category</div>
     <div>Page Count: @Model.PageCount</div>
+    <br />
+
+    <form method="post" asp-page="/purchase">
+
+        <input type="hidden" asp-for="@Model.BookId" />
+
+        <span class="card-text">
+            <button type="submit" class="btn btn-success btn-sm float-end">Purchase</button>
+        </span>
+    </form>
 </div>

@@ -37,6 +37,9 @@ namespace Mission10_ajames26
 
             //Concrete types for interfaces
             services.AddScoped<IBookRepository, BookRepository>();
+
+            //Razor
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -80,6 +83,8 @@ namespace Mission10_ajames26
                 );
 
                 endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
             });
         }
     }
