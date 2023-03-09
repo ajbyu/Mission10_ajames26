@@ -5,7 +5,12 @@
 
 <h2>Cart</h2>
 
-<table class="table table-bordered table-striped">
+<div class="alert alert-success alert-dismissible">
+    The purchase of these @Model.cart.CartItems.Count() item(s) will help fund Andrew's education journey.
+</div>
+
+<table class="table table-bordered table-hover">
+    @*Headers*@
     <thead>
         <tr>
             <th>Item</th>
@@ -15,6 +20,7 @@
         </tr>
     </thead>
 
+    @*Body*@
     <tbody>
         @foreach (var item in Model.cart.CartItems)
         {
@@ -35,6 +41,7 @@
         }
     </tbody>
 
+    @*Body*@
     <tfoot>
         <tr>
             <td colspan="3">
@@ -47,5 +54,5 @@
 
 <div>
     <a class="btn btn-primary" href="@Model.ReturnUrl">Keep Shopping</a>
-    <a class="btn btn-danger" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Check Out</a>
+    <a class="btn btn-success" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Check Out</a>
 </div>

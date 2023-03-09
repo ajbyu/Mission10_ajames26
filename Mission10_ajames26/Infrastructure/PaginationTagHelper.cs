@@ -32,6 +32,7 @@ namespace Mission10_ajames26.Infrastructure
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
+            //Build tag helper
             IUrlHelper helper = _uhf.GetUrlHelper(vc);
 
             TagBuilder result = new TagBuilder("div");
@@ -42,6 +43,7 @@ namespace Mission10_ajames26.Infrastructure
 
                 tag.Attributes["href"] = helper.Action(PageAction, new { pageNum = i });
 
+                //If classes are enabled, set them here
                 if (UseClasses)
                 {
                     tag.AddCssClass(PageClass);

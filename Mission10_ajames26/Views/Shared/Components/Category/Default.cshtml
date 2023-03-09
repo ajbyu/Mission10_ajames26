@@ -12,7 +12,7 @@
         padding: 5px;
         margin: 5px;
     }
-
+        @* This is the coolest CSS I've ever made. I should learn more some day. *@
         .filter_item:hover {
             background-color: #919191;
             transition: all .4s ease;
@@ -33,7 +33,7 @@
             asp-action="Index"
             asp-route-pageNum="1"
             asp-route-bookCategory="@category"
-            class="btn @(ViewBag.SelectedCategory == category ? "btn-primary" : "btn-block filter_item")">
+            class="btn @(ViewBag.SelectedCategory == category ? "btn-primary" : "btn-block filter_item")"> <!-- I wish this worked :( -->
         @category</a>
     }
 </div>

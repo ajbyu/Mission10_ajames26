@@ -14,11 +14,13 @@ namespace Mission10_ajames26.Pages
             _repo = bookRepository;
         }
 
+        //Repository and cart object
         private IBookRepository _repo;
         public Cart cart { get; set; }
 
         public string ReturnUrl { get; set; }
 
+        //GET and POST methods
         public void OnGet(string returnUrl)
         {
             ReturnUrl = returnUrl ?? "/";

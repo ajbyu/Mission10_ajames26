@@ -15,8 +15,10 @@ namespace Mission10_ajames26.Components
 
         public IViewComponentResult Invoke()
         {
+            //Get selected category
             ViewBag.SelectedCategory = RouteData?.Values["category"];
 
+            //Get book categories
             var categories = _repo
                 .Books
                 .Select(b => b.Category)

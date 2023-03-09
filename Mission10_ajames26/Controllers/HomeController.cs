@@ -25,6 +25,7 @@ namespace Mission10_ajames26.Controllers
 
             BooksViewModel vm = new BooksViewModel()
             {
+                //Loads books and determine page
                 Books = _bookRepo
                     .Books
                     .Where(b => b.Category == bookCategory || bookCategory == null)
@@ -32,6 +33,7 @@ namespace Mission10_ajames26.Controllers
                     .Skip((pageNum - 1) * pageSize)
                     .Take(10),
 
+                //Determine page size
                 PageInfo = new PageInfo
                 {
                     NumBooks = 
