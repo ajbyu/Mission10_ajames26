@@ -27,6 +27,7 @@
     .background:hover {
         background-color: #919191;
         transition: all .4s ease;
+        transform: scale(1.01);
     }
 </style>
 
@@ -37,16 +38,7 @@
 <div class="container">
     @foreach (Book b in Model.Books)
     {
-        <div class="background">
-            <h5><b>@b.Title</b></h5>
-            <div>Author: @b.Author</div>
-            <div>Publisher: @b.Publisher</div>
-            <div>Isbn: @b.Isbn</div>
-            <div>Classification: @b.Classification</div>
-            <div>Category: @b.Category</div>
-            <div>Page Count: @b.PageCount</div>
-            <div>Price: @b.Price</div>
-        </div>
+        <partial name="BookDetails" model="b" />
     }
 </div>
 

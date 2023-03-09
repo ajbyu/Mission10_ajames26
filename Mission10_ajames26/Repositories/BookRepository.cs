@@ -1,6 +1,7 @@
 ﻿using System.Linq;
+using Mission10_ajames26.Models;
 
-namespace Mission10_ajames26.Models
+namespace Mission10_ajames26.Repositories
 {
     public class BookRepository : IBookRepository
     {
@@ -11,7 +12,7 @@ namespace Mission10_ajames26.Models
             _context = context;
         }
 
-        public IQueryable<Book> Books => _context.Books;        
+        public IQueryable<Book> Books => _context.Books;
 
     }
 }

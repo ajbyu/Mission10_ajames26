@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Mission10_ajames26.Models;
+using Mission10_ajames26.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,10 +61,25 @@ namespace Mission10_ajames26
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "categoryPage",
+                    pattern: "{category}/{pageNum}",
+                    defaults: new { Controller = "Home", action = "Index" }
+                );
+
+                endpoints.MapControllerRoute(
+                    name: "paging",
+                    pattern: "{pageNum}",
+                    defaults: new { Controller = "Home", action = "Index", pageNum = 1 }
+                );
+
+                endpoints.MapControllerRoute(
+                    name: "category",
+                    pattern: "{category}",
+                    new { Controller = "Home", action = "Index", pageNum = 1 }
+                );
+
                 endpoints.MapDefaultControllerRoute();
-                //endpoints.MapControllerRoute(
-                //    name: "default",
-                //    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

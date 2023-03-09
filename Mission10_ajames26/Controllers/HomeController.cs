@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Mission10_ajames26.Models;
 using Mission10_ajames26.Models.ViewModels;
+using Mission10_ajames26.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -19,7 +19,7 @@ namespace Mission10_ajames26.Controllers
             _bookRepo = bookRepository;
         }
 
-        public IActionResult Index(int pageNum = 1)
+        public IActionResult Index(string bookCategory, int pageNum = 1)
         {
             int pageSize = 10;
 
@@ -27,13 +27,17 @@ namespace Mission10_ajames26.Controllers
             {
                 Books = _bookRepo
                     .Books
+                    .Where(b => b.Category == bookCategory || bookCategory == null)
                     .OrderBy(b => b.Title)
                     .Skip((pageNum - 1) * pageSize)
                     .Take(10),
 
                 PageInfo = new PageInfo
                 {
-                    NumBooks = _bookRepo.Books.Count(),
+                    NumBooks = 
+                        (bookCategory == null
+                            ? _bookRepo.Books.Count()
+                            : _bookRepo.Books.Where(b => b.Category == bookCategory).Count()),
                     PageSize = pageSize,
                     CurrentPage = pageNum
                 }
