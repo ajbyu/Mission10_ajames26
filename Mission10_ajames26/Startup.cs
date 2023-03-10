@@ -72,7 +72,7 @@ namespace Mission10_ajames26
             {
                 endpoints.MapControllerRoute(
                     name: "categoryPage",
-                    pattern: "{category}/{pageNum}",
+                    pattern: "{bookCategory}/{pageNum}",
                     defaults: new { Controller = "Home", action = "Index" }
                 );
 
@@ -84,7 +84,7 @@ namespace Mission10_ajames26
 
                 endpoints.MapControllerRoute(
                     name: "category",
-                    pattern: "{category}",
+                    pattern: "{bookCategory}",
                     new { Controller = "Home", action = "Index", pageNum = 1 }
                 );
 
